@@ -1,2 +1,140 @@
-@import 'bourbon';
-@import 'neat';
+@import 'normalize';
+@import 'vars';
+@import 'fonts';
+@import 'header';
+@import 'form';
+@import 'footer';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "jaapokki-regular", sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-weight: 400;
+}
+
+.holding-page-container {
+  display: flex;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  width: 55%;
+  background: url(../images/beyond-conference-bw.jpg) no-repeat center;
+  background-size: cover;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    z-index: 20;
+    height: 100%;
+    top: 0;
+  }
+  &:before {
+    left: 0;
+    width: 63%;
+    background-color: rgba(135,222,176,0.6);
+  }
+  &:after {
+    left: 63%;
+    width: 37%;
+    background-color: rgba(255,227,125,0.6);
+  }
+}
+
+.hero-image__stamp {
+  width: 204px;
+  position: absolute;
+  right: -60px;
+  bottom: 80px;
+  z-index: 30;
+}
+
+
+
+
+@media screen and (max-width: 1280px) {
+  body {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  body {
+    padding: 0;
+  }
+
+  .holding-page-container {
+    flex-direction: column;
+  }
+
+  header {
+    margin-left: 45px;
+    margin-right: 0;
+    width: 300px;
+  }
+
+  .hero-image {
+    height: 300px;
+    width: 100%;
+    margin-top: 65px;
+  }
+
+  .hero-image__stamp {
+    bottom: 40px;
+    right: 30px;
+  }
+
+
+  footer {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .twitter-link {
+    background-image: url(../images/twitter-red.svg);
+  }
+
+}
+
+@media screen and (max-width: 770px) {
+  header {
+    margin: 0 40px;
+    width: auto;
+  }
+
+  .event-info__logo {
+    font-size: 60px;
+    img {
+      width: auto;
+      max-width: 550px;
+    }
+  }
+
+  .news-signup__form {
+    width: auto;
+  }
+
+  .news-signup__field-group,
+  .news-signup-form__submit {
+    padding: 0;
+    width: 100%;
+  }
+
+  .news-signup__field-group {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,39 @@
+header {
+  width: 36%;
+}
+
+.event-info__tagline {
+  color: $beyond-red;
+  font-size: 16px;
+  margin-bottom: 45px;
+}
+
+.event-info__last-year {
+  color: $beyond-green;
+  display: block;
+}
+
+.icon-arrow {
+  width: 14px;
+  margin-left: 6px;
+}
+
+.icon-squiggle {
+  max-width: 240px;
+}
+
+.event-info__logo {
+  margin: 105px 0 0;
+  position: relative;
+  z-index: 30;
+  font-size: 70px;
+  line-height: 1.1;
+  color: $beyond-green;
+  img {
+    width: 550px;
+  }
+}
+
+.event-info__year {
+  display: block;
+}
