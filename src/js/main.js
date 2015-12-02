@@ -1,5 +1,5 @@
-var $ = require('jquery');
-var mailchimp = require('./mailchimp');
+import $ from 'jquery';
+import mailchimp from './mailchimp';
 
 var form = $('.news-signup__form');
 
