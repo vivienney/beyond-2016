@@ -7,6 +7,7 @@ var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
 var browserify = require('browserify');
 var watchify = require('watchify');
+var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var autoprefixer = require('gulp-autoprefixer');
 
@@ -42,13 +43,13 @@ gulp.task('moveImages', function() {
 function buildScript(watch) {
   var props = {
     entries: [jsOpt.src],
-    debug : true,
+    debug : true
   };
 
   var bundler = watch ? watchify(browserify(props)) : browserify(props);
 
   function rebundle() {
-    var stream = bundler.bundle();
+    var stream = bundler.transform('babelify', {presets: ['es2015']}).bundle();
     return stream
       .pipe(source('bundle.js'))
       .pipe(gulp.dest(jsOpt.dest))
