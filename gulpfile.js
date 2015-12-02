@@ -4,12 +4,20 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var ghPages = require('gulp-gh-pages');
 var browserSync = require('browser-sync');
-var sass = require('gulp-sass');
+var runSequence = require('run-sequence');
+var del = require('del');
+
 var browserify = require('browserify');
 var watchify = require('watchify');
 var babelify = require('babelify');
+var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+
+var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var minifyCss = require('gulp-minify-css');
+var sourcemaps = require('gulp-sourcemaps');
 
 
 var jsOpt = {
@@ -24,6 +32,9 @@ var sassOpt = {
 
 gulp.task('moveHTML', function() {
   gulp.src('./src/*.html')
+  .pipe(gulp.dest('./dist'))
+
+  gulp.src('./src/CNAME')
   .pipe(gulp.dest('./dist'))
 });
 
@@ -52,12 +63,11 @@ function buildScript(watch) {
     var stream = bundler.transform('babelify', {presets: ['es2015']}).bundle();
     return stream
       .pipe(source('bundle.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest(jsOpt.dest))
-      // If you also want to uglify it
-      // .pipe(buffer())
-      // .pipe(uglify())
-      // .pipe(rename('app.min.js'))
-      // .pipe(gulp.dest('./build'))
       .pipe(browserSync.stream())
   }
 
@@ -80,10 +90,13 @@ gulp.task('js', function() {
 gulp.task('sass', function() {
   gulp.src(sassOpt.src)
   .pipe(sass().on('error', sass.logError))
+  .pipe(sourcemaps.init())
   .pipe(autoprefixer({
     browsers: ['last 2 versions'],
     cascade: false
   }))
+  .pipe(minifyCss())
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest(sassOpt.dest))
   .pipe(browserSync.stream());
 });
@@ -97,9 +110,17 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('deploy', function() {
-  gulp.src('./dist/**/*')
+gulp.task('clean', function() {
+  return del(['./dist/**/*'])
+});
+
+gulp.task('ghPages', function() {
+  return gulp.src('./dist/**/*')
   .pipe(ghPages());
+})
+
+gulp.task('deploy', function() {
+  runSequence('clean', ['moveHTML', 'moveImages', 'sass', 'js', 'moveFonts'], 'ghPages')
 });
 
 gulp.task('default', ['browser-sync', 'moveHTML', 'moveImages', 'sass', 'js', 'moveFonts'], function() {
