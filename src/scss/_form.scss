@@ -49,3 +49,12 @@
     transform: translate(2px, 2px);
   }
 }
+
+.sign-up__message {
+  color: $beyond-red;
+  margin-top: 10px;
+}
+
+.sign-up__message--success {
+  color: $beyond-green;
+}

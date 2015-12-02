@@ -126,6 +126,7 @@ h1, h2, h3 {
 
   .news-signup__form {
     width: auto;
+    margin-bottom: 0;
   }
 
   .news-signup__field-group,
@@ -136,5 +137,9 @@ h1, h2, h3 {
 
   .news-signup__field-group {
     margin-bottom: 10px;
+  }
+
+  .sign-up__message {
+    text-align: center;
   }
 }
