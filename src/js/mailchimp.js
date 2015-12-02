@@ -1,4 +1,6 @@
-class MailchimpForm {
+import $ from 'jquery';
+
+let mailchimpForm = {
   register(form){
     $.ajax({
       type: form.attr('method'),
@@ -12,14 +14,13 @@ class MailchimpForm {
         var message = data.responseJSON.msg;
 
         if (data.result !== 'success') {
-          console.log(data);
           $('.sign-up__message').addClass('sign-up__message--active sign-up__message--fail').html(message);
         } else {
-          console.log(data);
           $('.sign-up__message').addClass('sign-up__message--active sign-up__message--success').html(message);
         }
       }
     }); // end AJAX
   }
 }
-export default new MailchimpForm();
+
+export default mailchimpForm;
