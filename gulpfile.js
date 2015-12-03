@@ -91,7 +91,7 @@ gulp.task('js', function() {
 
 
 gulp.task('sass', function() {
-  gulp.src(sassOpt.src)
+  return gulp.src(sassOpt.src)
   .pipe(sass().on('error', sass.logError))
   .pipe(sourcemaps.init())
   .pipe(autoprefixer({
