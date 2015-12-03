@@ -15,6 +15,7 @@ header {
   text-transform: none;
   margin-top: 20px;
   display: block;
+  line-height: 1.4;
 }
 
 .icon-arrow {
@@ -31,7 +32,7 @@ header {
   position: relative;
   z-index: 30;
   font-size: 70px;
-  line-height: 1.1;
+  line-height: 1;
   color: $beyond-green;
   img {
     width: 550px;
