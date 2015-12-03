@@ -9,7 +9,9 @@ header {
 }
 
 .event-info__last-year {
+  font-family: $body-font;
   color: $beyond-blue;
+  text-transform: none;
   display: block;
 }
 
@@ -35,5 +37,6 @@ header {
 }
 
 .event-info__year {
+  font-family: $body-font;
   display: block;
 }
