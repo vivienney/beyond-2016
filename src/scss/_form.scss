@@ -25,6 +25,8 @@
   padding: 0 10px;
   outline: none;
   transition: all 0.2s ease-in-out;
+  -webkit-appearance: none;
+  border-radius: 0;
   &:focus {
     box-shadow: 4px 4px 0 $beyond-pink;
   }
@@ -45,6 +47,8 @@
   box-shadow: 4px 4px 0 $beyond-pink;
   outline: none;
   transition: all 0.2s ease-in-out;
+  -webkit-appearance: none;
+  border-radius: 0;
   &:focus, &:hover {
     box-shadow: 2px 2px 0 $beyond-pink;
     transform: translate(2px, 2px);
