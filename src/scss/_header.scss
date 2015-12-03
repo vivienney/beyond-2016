@@ -5,13 +5,15 @@ header {
 .event-info__tagline {
   color: $beyond-blue;
   font-size: 16px;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 .event-info__last-year {
   font-family: $body-font;
   color: $beyond-blue;
   text-transform: none;
+  margin-top: 20px;
   display: block;
 }
 
