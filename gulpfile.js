@@ -48,6 +48,9 @@ gulp.task('watchHTML', ['moveHTML'], browserSync.reload);
 gulp.task('moveImages', function() {
   gulp.src('./src/images/**')
   .pipe(gulp.dest('./dist/images'))
+
+  gulp.src('./src/favicon.ico')
+  .pipe(gulp.dest('./dist'))
 });
 
 
