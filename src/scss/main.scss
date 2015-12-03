@@ -106,18 +106,20 @@ h1, h2, h3 {
 
   .twitter-link {
     background-image: url(../images/twitter-blue.svg);
+    right: 20px;
   }
 
 }
 
 @media screen and (max-width: 770px) {
   header {
-    margin: 0 40px;
+    margin: 0 20px;
     width: auto;
   }
 
   .event-info__logo {
     font-size: 60px;
+    margin-top: 60px;
     img {
       width: auto;
       max-width: 550px;
@@ -127,6 +129,7 @@ h1, h2, h3 {
   .news-signup__form {
     width: auto;
     margin-bottom: 0;
+    margin-top: 60px;
   }
 
   .news-signup__field-group,
