@@ -25,7 +25,7 @@ h1, h2, h3 {
 
 .holding-page-container {
   display: flex;
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -64,7 +64,7 @@ h1, h2, h3 {
 
 
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1300px) {
   body {
     padding: 0 0 0 20px;
   }
