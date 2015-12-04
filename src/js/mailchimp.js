@@ -13,7 +13,7 @@ let mailchimpForm = {
 
         var message = data.responseJSON.msg;
 
-        if (data.result !== 'success') {
+        if (data.responseJSON.result !== 'success') {
           $('.sign-up__message').addClass('sign-up__message--active sign-up__message--fail').html(message);
         } else {
           $('.sign-up__message').addClass('sign-up__message--active sign-up__message--success').html(message);
