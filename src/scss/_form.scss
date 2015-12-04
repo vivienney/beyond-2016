@@ -56,10 +56,8 @@
 }
 
 .sign-up__message {
-  color: $beyond-blue;
+  font-family: $body-font;
+  text-transform: none;
+  color: #5B5C5C;
   margin-top: 10px;
-}
-
-.sign-up__message--success {
-  color: $beyond-green;
 }
